@@ -28,7 +28,7 @@ def get_holds():
 
 	list_section = soup.find(class_='cp-holds-list')
 	list_elements = list_section.find_all(class_='cp-batch-actions-list-item')
-	titles = [i.find(class_='title-content').string for i in list_elements]
+	titles = [{i.find(class_='title-content').string: i.find(class_='status-name').string} for i in list_elements]
 	return titles
 
 print(get_holds())
